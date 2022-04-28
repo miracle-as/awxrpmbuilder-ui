@@ -1,0 +1,51 @@
+body {
+  margin: 40px;
+}
+
+.sidebar {
+    grid-area: sidebar;
+  }
+
+  .content {
+    grid-area: content;
+  }
+
+  .header {
+    grid-area: header;
+  }
+
+  .footer {
+    grid-area: footer;
+  }
+
+
+  .wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-areas:
+    "....... header header"
+    "sidebar content content"
+    "footer  footer  footer";
+    background-color: #bbb;
+    color: #999;
+  }
+
+
+.box {
+  background-color: #aaa;
+  color: #000;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 100%;
+}
+
+.header,
+.footer {
+  background-color: #999;
+}
+
+
+table {
+  border-collapse: collapse;
+}

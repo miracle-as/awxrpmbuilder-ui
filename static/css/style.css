@@ -1,0 +1,14 @@
+h1 a, h2 a {
+    color: #C25100;
+}
+.box {
+    background: gold;
+}
+div {
+    width: 20vw;
+    height: 20vh;
+    float: left;
+    margin: 1vw;
+    padding: 1vw;
+    border: solid;		
+}

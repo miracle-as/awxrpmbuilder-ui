@@ -1,0 +1,80 @@
+<!doctype html>
+{% load static %}
+<html>
+<link rel="stylesheet" type="text/css" href="{% static 'css/packagelayout.css' %}"/>
+    <title>Miracle opensource packages</title>
+        <head>
+            <style>
+                #customers {
+                  font-family: Arial, Helvetica, sans-serif;
+                  border-collapse: collapse;
+                  width: 80%;
+                  border: "1";
+                }
+                
+                #customers td, #customers th {
+                  border: 1px solid #ddd;
+                  padding: 8px;
+                  border-color: #85a4ab;
+                }
+                
+                #customers tr:hover {background-color: #ddd;}
+                
+                #customers th {
+                  padding-top: 12px;
+                  padding-bottom: 12px;
+                  text-align: left;
+                  border-color: #85a4ab;
+                }
+                </style>
+        </head>
+        <body>
+            <div class="wrapper">
+                <div class="box header">
+                    <h2>Miracle opensource python packages</h2>
+                </div>
+                <div class="box sidebar">
+                    <a href="/">Home</a><br>
+                    <a href="/projects">Projects</a><br>
+                    <a href="/packages">Packages</a><br>
+                </div>
+                <div class="box content">
+
+               <table id="buildstatus">
+                  <tr>
+                     <th width="2%"></th>
+                     <th>Name</th>
+                     <th width="12%">Version</th>
+                     <th width="8%">Status</th>
+                     <th width="8%">Source</th>
+                     <th width="8%">Spec</th>
+                     <th width="8%">SCL-Spec</th>
+                     <th width="8%">RPM</th>
+                     <th width="8%">SCL</th>
+                     <th width="2%"></th>
+                  </tr>
+                {% for package in object_list.reverse %}
+                <tr>
+                    <td>{{ package.packagetli }}</td>
+                    <td>{{ package.packagename }}</td>
+                    <td>{{ package.packageversion }}</td>
+                    <td class="{{ package.packagestatus }}">{{ package.packagestatus }}</td> <!-- status-->
+                    <td class="{{ package.packagesourcefilestatus }}">{{ package.packagesourcefilestatus  }}</td><!---->
+                    <td class="{{ package.packageorgspecfilestatus}}">{{ package.packageorgspecfilestatus  }}</td><!---->
+                    <td class="{{ package.packagesclfilestatus }}">{{ package.packagesclfilestatus  }}</td><!---->
+                    <td class="{{ package.packagerpmfilestatus }}">{{ package.packagerpmfilestatus  }}</td><!---->
+                    <td class="{{ package.packagesclrpmfilestatus }}">{{ package.packagesclrpmfilestatus  }}</td><!---->
+                    <td><a href="http://builder.pip2scl.dk/package/{{ package.packagename }}"><img align="left" src="http://repos.pip2scl.dk/logos/crayarrow.png" alt="Go" width="32" height="32"></td>
+                </tr>
+                {% empty %}
+                <b> Content ready to be deployed</b> <!--if  it emty-->
+                {% endfor %}
+                </table>
+                </div>
+                <div class="box footer">
+                    <center>2021 Miracle opensource packages 2021 </center>
+                    <meta http-equiv="refresh" content="10"> 
+                </div>
+            </div>
+          </body>
+</html>

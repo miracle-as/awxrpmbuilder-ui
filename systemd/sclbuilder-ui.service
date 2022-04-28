@@ -1,0 +1,28 @@
+[Unit]
+Description=SCLBuilder UI
+
+# After networking because we need that
+After=network.target
+
+[Service]
+
+# Simple services don't do any forking / background nonsence
+Type=simple
+
+# User with which to run the service
+User=sclbuilder
+
+# Set the working directory for the application
+WorkingDirectory=/opt/awxrpm/sclbuilder-ui
+
+# Command to run the application
+ExecStart=/bin/bash -c 'source /opt/awxrpm/sclbuilder-ui/venv/bin/activate && /opt/awxrpm/sclbuilder-ui/venv/bin/uwsgi --socket /opt/awxrpm/sclbuilder/sclbuilder.sock --module sclbuilder.wsgi --chmod-socket=666'
+
+# Restart policy, only on failure
+Restart=on-failure
+
+Environment="PATH=/opt/awxrpm/sclbuilder-ui/venv/bin"
+
+[Install]
+# Start the service before we get to multi-user mode
+WantedBy=multi-user.target

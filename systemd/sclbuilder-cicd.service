@@ -1,0 +1,26 @@
+[Unit]
+Description=SCLBuilder UI
+
+# After networking because we need that
+After=network.target
+
+[Service]
+
+# Simple services don't do any forking / background nonsence
+Type=simple
+
+# User with which to run the service
+User=sclbuilder
+
+# Set the working directory for the application
+WorkingDirectory=/opt/awxrpm/sclbuilder-ui
+
+# Command to run the application
+ExecStart=/opt/awxrpm/sclbuilder-ui/cicd-systemd.sh
+
+# Restart policy, only on failure
+Restart=on-failure
+
+[Install]
+# Start the service before we get to multi-user mode
+WantedBy=multi-user.target

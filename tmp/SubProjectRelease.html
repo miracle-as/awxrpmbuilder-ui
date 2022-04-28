@@ -1,0 +1,39 @@
+<http>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/projectlayout.css' %}"/>
+
+    <title>Miracle opensource projects</title>
+<h1><center>Miracle Opensource projects</center></h1> 
+<HR>
+    <body>
+        <header id="pageHeader">
+            <img align="left"  src="{{ object.logoURL }}" alt="Logo" width="64" height="64"> <h2>                      {{ object.projectName }}</h2>
+        </header>
+        <HR>
+        <project id="project">
+            <table border="1">
+                <tr><td>Version</td><td>{{ object.Version }}</td></tr>
+                <tr><td>Description</td><td>{{ object.Description }}</td></tr>
+                <tr><td>Status</td><td>{{ object.Status }}</td></tr>
+                <tr><td>Created</td><td>{{ object.projectCreated }}</td></tr>
+                <tr><td>Deployed</td><td>{{ object.projectDeployed }}</td></tr>
+                <tr><td>URL</td><td>{{ object.projectURL }}</td></tr>
+                <tr><td>Requirements</td><td>{{ object.RequirementURL }} </td></tr>
+                <tr><td>Total</td><td>{{ object.TotalRequirements }} </td></tr>
+                <tr><td>Build</td><td>{{ object.TotalRequirementsBuild }} </td></tr>
+                <tr><td>Failed</td><td>{{ object.TotalRequirementsFailed }} </td></tr>
+            </table>
+            
+        </project>
+            <HR>
+        <nav id="mainNav">
+            <a href="/">Home</a> |
+            <a href="/README.md/">README.md</a> |
+        </nav>
+        <footer id="pageFooter"><hr><center>Opensource procject by Miracle A/S</center></footer>
+        <hr>
+    </body>
+    
+    <meta http-equiv=\"refresh\" content=\"10\"> 
+</http>
+

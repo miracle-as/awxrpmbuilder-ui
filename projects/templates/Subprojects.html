@@ -1,0 +1,60 @@
+<!doctype html>
+{% load static %}
+<html>
+<link rel="stylesheet" type="text/css" href="{% static 'css/projectlayout.css' %}"/>
+    <title>Miracle opensource projects</title>
+        <head>
+        </head>
+        <body>
+            <div class="wrapper">
+                <div class="box header">
+                    <h2>Miracle opensource turnkey projects</h2>
+                </div>
+                <div class="box sidebar">
+                    <a href="/">Home</a><br>
+                    <a href="/projects">Projects</a><br>
+                    <a href="/packages">Packages</a><br>
+                </div>
+                <div class="box content">
+
+
+
+                <table border="1">
+                  <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Version</th>
+                    <th>Description</th>
+                    <th>Releases</th>s</th>
+                    <th>Building</th>
+                    <th>Ready</th>
+                    <th>Failed</th>
+                    <th></th>
+                </tr>
+                {% for subproject in object_list %}
+                <tr>
+                    <td><img align="left"  src="{{ subproject.subprojectlogourl }}" alt="Logo" width="64" height="64"></td>
+                    <td>{{ subproject.subprojectname }}</td>
+                    <td>{{ subproject.subprojectversion }}</td>
+                    <td>{{ subproject.subprojectdescription }}</td>
+                    <td align ="center">{{ subproject.subprojectreleases  }}</td>
+                    <td align ="center">{{ subproject.subprojectreleasesbuilding }}</td>
+                    <td align ="center">{{ subproject.subprojectreleasesbuild }}</td>
+                    <td align ="center">{{ subproject.subprojectreleasesfailed }}</td>
+                    <td><a href="http://builder.pip2scl.dk/subproject/{{ subproject.subprojectname }}"><img align="left" src="http://repos.pip2scl.dk/logos/crayarrow.png" alt="Go" width="32" height="32"></td>
+                </tr>
+                {% empty %}
+                   <a href="http://builder.pip2scl.dk/createnewsubproject" >
+                   Create new subproject
+                   </a>
+                {% endfor %}
+                </table>
+
+            </div>
+            <div class="box footer">
+                <center>2021 Miracle opensource projects 2021</center>
+                <meta http-equiv="refresh" content="10"> 
+            </div>
+        </div>
+    </body>
+</html>

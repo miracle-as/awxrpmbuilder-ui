@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+   <head>
+   </head>
+    <body onload="document.createElement('form').submit.call(document.getElementById('myForm'))">
+        <form id="myForm" name="myForm" action="http://builder.pip2scl.dk/dG9rZW50b2tlbnRva2VudG9rZW50b2tlbnRva2VudG9rZW4K/showproject" method="POST">
+            {% csrf_token %} 
+            {{ form.as_p }}
+            <input type=hidden name="projectname" id="id_projectname" value="autocreateproject"/> 
+        <input type="submit" value="save"> 
+    </form>
+   </body>
+</html>
+
+
